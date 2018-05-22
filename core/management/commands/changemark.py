@@ -13,8 +13,8 @@ class Command(BaseCommand):
         for k, v in nums.items():
             print '{0} yuandianziquan'.format(k)
             for i in xrange(v):
-            token = '{0}{1}'.format(create_unique(8), k)
-            ticket, url = ws.create_qrcode(token)
-            print '{0}'.format(url)
-            uc = UniqueCode(unique_id=token, code_type=code_type.get(k), qr_content=url, qr_url=ticket)
-            uc.save()
+                token = '{0}{1}'.format(create_unique(8), k)
+                ticket, url = ws.create_qrcode(token)
+                print '{0}'.format(url)
+                uc = UniqueCode(unique_id=token, code_type=code_type.get(k), qr_content=url, qr_url=ticket)
+                uc.save()
