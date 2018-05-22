@@ -2,7 +2,7 @@
 from django.core.management.base import BaseCommand
 from core.models import UniqueCode
 from core.utils import create_unique
-from core.wechat_sdk import WeChatService
+from core.wechat_service import WeChatService
 
 
 class Command(BaseCommand):
