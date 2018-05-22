@@ -21,9 +21,9 @@ class UniqueCode(BaseModel):
     )
     unique_id = models.CharField(max_length=64, unique=True)
     code_type = models.IntegerField(default=1, choices=code_choices)
-    qr_content = models.CharField(default='', null=True, blank=True)
-    qr_url = models.CharField(default='', null=True, blank=True)
-    phone = models.CharField(default='', null=True, blank=True)
+    qr_content = models.CharField(max_length=256, default='', null=True, blank=True)
+    qr_url = models.CharField(max_length=256, default='', null=True, blank=True)
+    phone = models.CharField(max_length=20, default='', null=True, blank=True)
     use = models.BooleanField(default=False)
 
     def __unicode__(self):
