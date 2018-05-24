@@ -8,13 +8,14 @@ from core.wechat_service import WeChatService
 class Command(BaseCommand):
     def handle(self, *args, **options):
         ws = WeChatService('wx586e2dfae97146a7', '226f8be53f435e54247470a39f907ec6')
-        nums = {'10': 50, '30': 150, '50': 20, '60': 20}
-        code_type = {'10': 1, '30': 2, '50': 3, '60': 4}
-        for k, v in nums.items():
-            print '{0} yuandianziquan'.format(k)
-            for i in xrange(v):
-                token = '{0}{1}'.format(create_unique(8), k)
-                ticket, url = ws.create_qrcode(token)
-                print '{0}'.format(url)
-                uc = UniqueCode(unique_id=token, code_type=code_type.get(k), qr_content=url, qr_url=ticket)
-                uc.save()
+        # nums = {'10': 50, '30': 150, '50': 20, '60': 20}
+        # code_type = {'10': 1, '30': 2, '50': 3, '60': 4}
+        # for k, v in nums.items():
+        #     print '{0} yuandianziquan'.format(k)
+        #     for i in xrange(v):
+        #     token = '{0}{1}'.format(create_unique(8), k)
+        token = create_unique(10)
+        ticket, url = ws.create_qrcode(token)
+        print '{0}'.format(url)
+        uc = UniqueCode(unique_id=token, code_type=10, qr_content=url, qr_url=ticket)
+        uc.save()

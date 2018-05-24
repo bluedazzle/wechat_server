@@ -17,7 +17,9 @@ class UniqueCode(BaseModel):
         (1, '10元电子券'),
         (2, '30元电子券'),
         (3, '50元电子券'),
-        (4, '60元电子券')
+        (4, '60元电子券'),
+        (10, '导航'),
+
     )
     unique_id = models.CharField(max_length=64, unique=True)
     code_type = models.IntegerField(default=1, choices=code_choices)
