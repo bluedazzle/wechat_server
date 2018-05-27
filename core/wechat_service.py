@@ -23,7 +23,7 @@ class WeChatService(object):
             self.app_secret = self.wechat_admin.app_secret
         else:
             self.wechat_admin = None
-            self.wechat = WechatBasic(appid=app_id, appsecret=app_secret)
+            self.wechat = WechatBasic(appid=app_id, appsecret=app_secret, token='123')
 
         self.get_token()
 
