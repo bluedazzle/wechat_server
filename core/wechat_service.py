@@ -117,9 +117,22 @@ class WeChatService(object):
                        'voice': self.other_manage,
                        'click': self.click_manage
                        }
-        is_pic, result = manage_dict[message.type](message)
-        if is_pic:
-            response = self.wechat.response_news(result)
-        else:
-            response = self.wechat.response_text(result)
+        result = manage_dict[message.type](message)
+        response = self.wechat.response_text(result)
         return response
+
+    def other_manage(self, message):
+        pass
+
+    def click_manage(self, message):
+        pass
+
+    def text_manage(self, message):
+        return 'test'
+
+    def event_manage(self, message):
+        if message.type == 'subscribe':
+            print message.key
+            return ''
+
+

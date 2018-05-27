@@ -1,0 +1,29 @@
+# coding: utf-8
+from __future__ import unicode_literals
+
+from django.views.generic import DetailView
+
+from core.Mixin.StatusWrapMixin import StatusWrapMixin, ERROR_DATA
+from core.dss.Mixin import JsonResponseMixin
+from core.models import UniqueCode
+
+
+class PhoneBindView(StatusWrapMixin, JsonResponseMixin, DetailView):
+    model = UniqueCode
+    include_attr = ['code']
+
+    def get(self, request, *args, **kwargs):
+        phone = request.GET.get('phone')
+        token = request.GET.get('token')
+        unique_code_list = UniqueCode.objects.filter(unique_id=token, use=False).all()
+        phone_nums = UniqueCode.objects.filter(phone=phone).count()
+        if unique_code_list.exists() and phone_nums < 2:
+            unique_code = unique_code_list[0]
+            unique_code.phone = phone
+            unique_code.use = True
+            unique_code.save()
+            self.message = unique_code.code_type
+            return self.render_to_response({})
+        self.message = '领券超出限制或无效'
+        self.status_code = ERROR_DATA
+        return self.render_to_response({})
