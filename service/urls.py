@@ -6,5 +6,5 @@ urlpatterns = [
     # url(r'^$', 'wechat_server.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', MainServiceView.as_view()),
+    url(r'^sxrhy/$', MainServiceView.as_view()),
 ]
