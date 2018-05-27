@@ -142,7 +142,10 @@ class WeChatService(object):
 
     def handle_coupon(self, message):
         key = message.key
-        unique_id = key.split('qrscene_')[1]
+        if key.startswith('qrscene_'):
+            unique_id = key.split('qrscene_')[1]
+        else:
+            unique_id = key
         uc = UniqueCode.objects.filter(unique_id=unique_id).all()
         if uc.exists():
             uc = uc[0]
