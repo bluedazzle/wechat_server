@@ -132,13 +132,9 @@ class WeChatService(object):
     def event_manage(self, message):
         print message.type
         if message.type == 'subscribe':
-            if self.handle_coupon(message):
-                return 'http://sy.chafanbao.com/api/v1/phone/'
-            return ''
+            return self.handle_coupon(message)
         elif message.type == 'scan':
-            if self.handle_coupon(message):
-                return 'http://sy.chafanbao.com/api/v1/phone/'
-            return ''
+            return self.handle_coupon(message)
 
     def handle_coupon(self, message):
         key = message.key
@@ -149,6 +145,8 @@ class WeChatService(object):
         uc = UniqueCode.objects.filter(unique_id=unique_id).all()
         if uc.exists():
             uc = uc[0]
+            if uc.code_type == 10:
+                return 'https://map.baidu.com/mobile/webapp/index/index#place/detail/qt=ninf&wd=%E8%BF%90%E5%9F%8E%E5%B8%82%E7%9B%90%E6%B9%96%E5%8C%BA%E9%BB%84%E6%B2%B3%E5%A4%A7%E9%81%93&c=328&searchFlag=bigBox&version=5&exptype=dep&src_from=webapp_all_bigbox&src=0&uid=28e700f1f483be7d095cb365&industry=life&qid=10170784149860829189/showall=1&pos=0&da_ref=listclk&da_qrtp=11&da_adquery=%E8%BF%90%E5%9F%8E%E5%B8%82%E7%9B%90%E6%B9%96%E5%8C%BA%E9%BB%84%E6%B2%B3%E5%A4%A7%E9%81%93&da_adtitle=%E9%BB%84%E6%B2%B3%E5%A4%A7%E9%81%93&vt=map'
             if not uc.use:
-                return True
-        return False
+                return 'http://sy.chafanbao.com/api/v1/phone/'
+        return 'used'
