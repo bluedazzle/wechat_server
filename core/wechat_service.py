@@ -135,6 +135,10 @@ class WeChatService(object):
             if self.handle_coupon(message):
                 return 'http://sy.chafanbao.com/api/v1/phone/'
             return ''
+        elif message.type == 'scan':
+            if self.handle_coupon(message):
+                return 'http://sy.chafanbao.com/api/v1/phone/'
+            return ''
 
     def handle_coupon(self, message):
         key = message.key
