@@ -71,7 +71,6 @@ class WeChatService(object):
         url = result.get('url', '')
         return ticket, url
 
-
     def get_user_info_by_code(self, code):
         req_url = '''https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code'''.format(
             self.wechat_admin.app_id, self.wechat_admin.app_secret, code)
@@ -131,8 +130,18 @@ class WeChatService(object):
         return 'test'
 
     def event_manage(self, message):
+        print message.type
         if message.type == 'subscribe':
-            print message.key
+            if self.handle_coupon(message):
+                return 'http://sy.chafanbao.com/api/v1/phone/'
             return ''
 
-
+    def handle_coupon(self, message):
+        key = message.key
+        unique_id = key.split('qrscene_')[1]
+        uc = UniqueCode.objects.filter(unique_id=unique_id).all()
+        if uc.exists():
+            uc = uc[0]
+            if not uc.use:
+                return True
+        return False
