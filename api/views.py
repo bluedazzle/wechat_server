@@ -24,7 +24,7 @@ class PhoneBindView(StatusWrapMixin, JsonResponseMixin, DetailView):
             if unique_code.code_type != 11:
                 unique_code.save()
             # self.message = unique_code.code_type
-            scode_type = {1: '10', 2: '30', 3: '50', 4: '60'}
+            scode_type = {1: '10', 2: '30', 3: '50', 4: '60', 11: '50'}
             self.message = '成功领取{0}元电子券!'.format(scode_type.get(unique_code.code_type))
             return self.render_to_response({})
         self.message = '领券超出限制或无效'
