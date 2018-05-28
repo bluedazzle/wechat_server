@@ -130,6 +130,26 @@ class WeChatService(object):
         pass
 
     def text_manage(self, message):
+        if message.content == 'cm':
+            menu = {
+                'button': [
+                    {'name': '电子会议',
+                     'type': 'view',
+                     'url': 'https://mp.weixin.qq.com/s/G1rpCP-qCP5UAYO7C81mhQ'
+                     },
+                    {'name': '现场直播链接',
+                     'type': 'view',
+                     'url': 'http://live.vhall.com/990247236 '
+                     },
+                    {'name': '签到链接',
+                     'type': 'view',
+                     'url': 'http://xianchang.qq.com/live/client/index.html?campaign_id=860451'
+                     },
+
+                ]
+            }
+            self.wechat.create_menu(menu)
+            return 'cm success', False
         return 'test', False
 
     def response_article(self, mount, token):
