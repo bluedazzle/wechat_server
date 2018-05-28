@@ -145,7 +145,7 @@ class WeChatService(object):
         if uc.exists():
             uc = uc[0]
             if uc.code_type == 10:
-                return "<a href='https://map.baidu.com/mobile/webapp/index/index#search/search/qt=s&wd=%E8%BF%9C%E5%A4%A7%E6%B1%BD%E4%BF%AE&c=328&searchFlag=bigBox&version=5&exptype=dep&src_from=webapp_all_bigbox&wd2=%E8%BF%90%E5%9F%8E%E5%B8%82%E7%9B%90%E6%B9%96%E5%8C%BA&sug_forward=a12baa40879e0355e956fa89&src=1/vt=map'>导航</a>"
+                return "<a href='https://ditu.amap.com/place/B01670M5JQ'>导航</a>"
             if uc.code_type == 11:
                 return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
             if not uc.use:
