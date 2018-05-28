@@ -17,5 +17,5 @@ class Command(BaseCommand):
         token = create_unique(10)
         ticket, url = ws.create_qrcode(token)
         print '{0}'.format(url)
-        uc = UniqueCode(unique_id=token, code_type=10, qr_content=url, qr_url=ticket)
+        uc = UniqueCode(unique_id=token, code_type=11, qr_content=url, qr_url=ticket)
         uc.save()

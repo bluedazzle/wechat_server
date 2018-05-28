@@ -19,6 +19,7 @@ class UniqueCode(BaseModel):
         (3, '50元电子券'),
         (4, '60元电子券'),
         (10, '导航'),
+        (11, '测试'),
 
     )
     unique_id = models.CharField(max_length=64, unique=True)

@@ -21,7 +21,8 @@ class PhoneBindView(StatusWrapMixin, JsonResponseMixin, DetailView):
             unique_code = unique_code_list[0]
             unique_code.phone = phone
             unique_code.use = True
-            unique_code.save()
+            if unique_code.code_type != 11:
+                unique_code.save()
             # self.message = unique_code.code_type
             self.message = '领取成功'
             return self.render_to_response({})
