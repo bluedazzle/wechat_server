@@ -117,7 +117,10 @@ class WeChatService(object):
                        'click': self.click_manage
                        }
         result = manage_dict[message.type](message)
-        response = self.wechat.response_text(result)
+        if isinstance(result, basestring):
+            response = self.wechat.response_text(result)
+        else:
+            response = self.wechat.response_news(result)
         return response
 
     def other_manage(self, message):
@@ -161,7 +164,6 @@ class WeChatService(object):
                 # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
             if not uc.use:
                 resp = self.response_article(scode_type.get(uc.code_type), uc.unique_id)
-                print resp
                 return resp
                 # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
         return '优惠券已被领取'
