@@ -130,7 +130,7 @@ class WeChatService(object):
         pass
 
     def text_manage(self, message):
-        return 'test'
+        return 'test', True
 
     def response_article(self, mount, token):
         article = {
@@ -139,7 +139,7 @@ class WeChatService(object):
             'description': '快来领取！',
             'picurl': 'http://static.fibar.cn/{0}yuan.png'.format(mount)}
         news = self.wechat.response_news([article])
-        return news
+        return news, True
 
     def event_manage(self, message):
         if message.type == 'subscribe':
@@ -158,12 +158,11 @@ class WeChatService(object):
         if uc.exists():
             uc = uc[0]
             if uc.code_type == 10:
-                return "<a href='https://ditu.amap.com/place/B01670M5JQ'>导航</a>"
+                return "<a href='https://ditu.amap.com/place/B01670M5JQ'>导航</a>", False
             if uc.code_type == 11:
                 return self.response_article(scode_type.get(uc.code_type), uc.unique_id)
                 # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
             if not uc.use:
-                resp = self.response_article(scode_type.get(uc.code_type), uc.unique_id)
-                return resp
+                return self.response_article(scode_type.get(uc.code_type), uc.unique_id)
                 # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
-        return '优惠券已被领取'
+        return '优惠券已被领取', False
