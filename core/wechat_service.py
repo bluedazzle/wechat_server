@@ -137,7 +137,7 @@ class WeChatService(object):
             'url': 'http://sy.chafanbao.com/page/phone/?token={0}'.format(token),
             'title': '恭喜您获得一张 {0} 元电子券'.format(mount),
             'description': '快来领取！',
-            'picurl': 'http://static.fibar.cn/{0}yuan.png'.format(mount)}
+            'picurl': 'http://static.fibar.cn/{0}y.jpg'.format(mount)}
         news = self.wechat.response_news([article])
         return news, True
 
