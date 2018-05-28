@@ -160,6 +160,8 @@ class WeChatService(object):
                 return self.response_article(scode_type.get(uc.code_type), uc.unique_id)
                 # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
             if not uc.use:
-                return self.response_article(scode_type.get(uc.code_type), uc.unique_id)
+                resp = self.response_article(scode_type.get(uc.code_type), uc.unique_id)
+                print resp
+                return resp
                 # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
         return '优惠券已被领取'
