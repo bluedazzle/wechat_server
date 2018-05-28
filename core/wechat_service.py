@@ -116,8 +116,8 @@ class WeChatService(object):
                        'voice': self.other_manage,
                        'click': self.click_manage
                        }
-        result = manage_dict[message.type](message)
-        if isinstance(result, basestring):
+        result, is_news = manage_dict[message.type](message)
+        if not is_news:
             response = self.wechat.response_text(result)
         else:
             response = self.wechat.response_news(result)
@@ -130,7 +130,7 @@ class WeChatService(object):
         pass
 
     def text_manage(self, message):
-        return 'test', True
+        return 'test', False
 
     def response_article(self, mount, token):
         article = {
