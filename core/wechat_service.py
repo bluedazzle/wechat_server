@@ -129,6 +129,15 @@ class WeChatService(object):
     def text_manage(self, message):
         return 'test'
 
+    def response_article(self, mount, token):
+        article = {
+            'url': 'http://sy.chafanbao.com/page/phone/?token={0}'.format(token),
+            'title': '恭喜您获得一张 {0} 元电子券'.format(mount),
+            'description': '快来领取！',
+            'picurl': 'http://static.fibar.cn/{0}yuan.png'.format(mount)}
+        news = self.wechat.response_news([article])
+        return news
+
     def event_manage(self, message):
         if message.type == 'subscribe':
             return self.handle_coupon(message)
@@ -142,12 +151,15 @@ class WeChatService(object):
         else:
             unique_id = key
         uc = UniqueCode.objects.filter(unique_id=unique_id).all()
+        scode_type = {1: '10', 2: '30', 3: '50', 4: '60', 11: '50'}
         if uc.exists():
             uc = uc[0]
             if uc.code_type == 10:
                 return "<a href='https://ditu.amap.com/place/B01670M5JQ'>导航</a>"
             if uc.code_type == 11:
-                return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
+                return self.response_article(scode_type.get(uc.code_type), uc.unique_id)
+                # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
             if not uc.use:
-                return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
+                return self.response_article(scode_type.get(uc.code_type), uc.unique_id)
+                # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
         return '优惠券已被领取'
