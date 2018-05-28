@@ -146,7 +146,7 @@ class WeChatService(object):
         if uc.exists():
             uc = uc[0]
             if uc.code_type == 10:
-                return 'https://map.baidu.com/mobile/webapp/index/index#place/detail/qt=ninf&wd=%E8%BF%90%E5%9F%8E%E5%B8%82%E7%9B%90%E6%B9%96%E5%8C%BA%E9%BB%84%E6%B2%B3%E5%A4%A7%E9%81%93&c=328&searchFlag=bigBox&version=5&exptype=dep&src_from=webapp_all_bigbox&src=0&uid=28e700f1f483be7d095cb365&industry=life&qid=10170784149860829189/showall=1&pos=0&da_ref=listclk&da_qrtp=11&da_adquery=%E8%BF%90%E5%9F%8E%E5%B8%82%E7%9B%90%E6%B9%96%E5%8C%BA%E9%BB%84%E6%B2%B3%E5%A4%A7%E9%81%93&da_adtitle=%E9%BB%84%E6%B2%B3%E5%A4%A7%E9%81%93&vt=map'
+                return '''https://map.baidu.com/mobile/webapp/place/detail/qt=ninf&wd=%E8%BF%90%E5%9F%8E%E5%B8%82%E6%B1%BD%E8%BD%A6%E5%AE%A2%E8%BF%90%E4%B8%AD%E5%BF%83%E7%AB%99&c=131&searchFlag=bigBox&version=5&exptype=dep&src_from=webapp_all_bigbox&wd2=%E8%BF%90%E5%9F%8E%E5%B8%82%E7%9B%90%E6%B9%96%E5%8C%BA&sug_forward=8fde79ccd29f7dbe95ca073b&src=1&nb_x=12943696.83&nb_y=4825882.45&center_rank=1&uid=8fde79ccd29f7dbe95ca073b&industry=life&qid=8962899613490633649/showall=1&pos=0&da_ref=listclk&da_qrtp=11&da_adquery=%E8%BF%90%E5%9F%8E%E5%B8%82%E6%B1%BD%E8%BD%A6%E5%AE%A2%E8%BF%90%E4%B8%AD%E5%BF%83%E7%AB%99&da_adtitle=%E8%BF%90%E5%9F%8E%E5%B8%82%E6%B1%BD%E8%BD%A6%E5%AE%A2%E8%BF%90%E4%B8%AD%E5%BF%83%E7%AB%99&da_adindus=%E4%BA%A4%E9%80%9A%E8%AE%BE%E6%96%BD%3B%E9%95%BF%E9%80%94%E6%B1%BD%E8%BD%A6%E7%AB%99&detail_from=list&vt=map'''
             if not uc.use:
-                return 'http://sy.chafanbao.com/api/v1/phone/'
+                return 'http://sy.chafanbao.com/page/phone/?token={0}'.format(unique_id)
         return 'used'

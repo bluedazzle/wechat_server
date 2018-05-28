@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>登录</title>
+    <link href="/s/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="topArea">
+    <img src="/s/image/bg.png">
+    <p>填写手机号</p>
+</div>
+<div class="submitArea">
+    <input placeholder="请输入手机号" type="number" id="phone">
+    <input type="hidden" id="token" value="{{ token }}">
+    <button id="submit">立即领取</button>
+</div>
+<script src="/s/js/query.js" type="text/javascript"></script>
+</body>
+</html>
