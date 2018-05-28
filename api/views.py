@@ -22,7 +22,8 @@ class PhoneBindView(StatusWrapMixin, JsonResponseMixin, DetailView):
             unique_code.phone = phone
             unique_code.use = True
             unique_code.save()
-            self.message = unique_code.code_type
+            # self.message = unique_code.code_type
+            self.message = '领取成功'
             return self.render_to_response({})
         self.message = '领券超出限制或无效'
         self.status_code = ERROR_DATA

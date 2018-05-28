@@ -11,6 +11,7 @@ class PhonePageView(TemplateView):
         context = super(PhonePageView, self).get_context_data(**kwargs)
         token = self.request.GET.get('token', '')
         context['token'] = token
+        context['title'] = '优惠券领取'
         return context
 
 
