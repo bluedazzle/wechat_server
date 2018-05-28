@@ -137,11 +137,11 @@ class WeChatService(object):
                      'type': 'view',
                      'url': 'https://mp.weixin.qq.com/s/G1rpCP-qCP5UAYO7C81mhQ'
                      },
-                    {'name': '现场直播链接',
+                    {'name': '现场直播',
                      'type': 'view',
                      'url': 'http://live.vhall.com/990247236 '
                      },
-                    {'name': '签到链接',
+                    {'name': '签到',
                      'type': 'view',
                      'url': 'http://xianchang.qq.com/live/client/index.html?campaign_id=860451'
                      },
