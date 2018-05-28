@@ -120,7 +120,7 @@ class WeChatService(object):
         if not is_news:
             response = self.wechat.response_text(result)
         else:
-            response = self.wechat.response_news(result)
+            response = result
         return response
 
     def other_manage(self, message):
