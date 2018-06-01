@@ -137,9 +137,9 @@ class WeChatService(object):
                      'type': 'view',
                      'url': 'https://mp.weixin.qq.com/s/G1rpCP-qCP5UAYO7C81mhQ'
                      },
-                    {'name': '现场直播',
+                    {'name': '双向引流',
                      'type': 'view',
-                     'url': 'http://live.vhall.com/990247236 '
+                     'url': 'http://static.fibar.cn/shuangxiangyinliujiaochengshipin.mp4'
                      },
                     {'name': '签到',
                      'type': 'view',
