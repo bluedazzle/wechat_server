@@ -103,7 +103,7 @@ class WeChatService(object):
         self.wechat.parse_data(message_body)
         message = self.wechat.get_message()
         manage_dict = {'text': self.text_manage,
-                       'image': self.other_manage,
+                       'image': self.image_manage,
                        'video': self.other_manage,
                        'shortvideo': self.other_manage,
                        'link': self.other_manage,
