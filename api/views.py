@@ -1,10 +1,12 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+from django.http import HttpResponse
 from django.views.generic import DetailView
+from django.views.generic import ListView
 
 from core.Mixin.StatusWrapMixin import StatusWrapMixin, ERROR_DATA
-from core.dss.Mixin import JsonResponseMixin
+from core.dss.Mixin import JsonResponseMixin, MultipleJsonResponseMixin
 from core.models import UniqueCode
 
 
@@ -30,3 +32,6 @@ class PhoneBindView(StatusWrapMixin, JsonResponseMixin, DetailView):
         self.message = '领券超出限制或无效'
         self.status_code = ERROR_DATA
         return self.render_to_response({})
+
+
+

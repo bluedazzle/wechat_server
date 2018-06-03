@@ -123,6 +123,9 @@ class WeChatService(object):
             response = result
         return response
 
+    def image_manage(self, message):
+        return '照片已收到', False
+
     def other_manage(self, message):
         pass
 
