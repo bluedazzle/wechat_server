@@ -30,7 +30,7 @@ class UniqueCode(BaseModel):
     use = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return '{0}-{1}-{2}'.format(self.unique_id, self.use, self.phone)
+        return '{0}-{1}-{2}-{3}'.format(self.unique_id, self.qr_content,  self.use, self.phone)
 
 
 class WeChatAdmin(models.Model):
