@@ -136,24 +136,24 @@ class WeChatService(object):
         if message.content == 'cm':
             menu = {
                 'button': [
-                    {'name': '电子会议',
+                    {'name': '活动介绍',
                      'type': 'view',
-                     'url': 'https://mp.weixin.qq.com/s/G1rpCP-qCP5UAYO7C81mhQ'
+                     'url': 'https://mp.weixin.qq.com/s/dcv8CZktbCu7OiA3-9O1yA'
                      },
                     {'name': '双向引流',
                      'type': 'view',
                      'url': 'http://static.fibar.cn/shuangxiangyinliujiaochengshipin.mp4'
                      },
-                    {'name': '签到',
+                    {'name': '昆仑微网',
                      'type': 'view',
-                     'url': 'http://xianchang.qq.com/live/client/index.html?campaign_id=860451'
+                     'url': 'http://kunlunlube.cnpc.com.cn/klrhy/mindex/m_index.shtml?from=weixin'
                      },
 
                 ]
             }
             self.wechat.create_menu(menu)
             return 'cm success', False
-        return 'test', False
+        return '收到', False
 
     def response_article(self, mount, token):
         article = {
