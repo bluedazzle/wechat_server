@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <title>FrozenUI Demo</title>
+    <!-- 引入 FrozenUI -->
+    <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css"/>
+{#    <style type="text/css">#}
+{#        a:after {#}
+{#            font-family: iconarrow !important;#}
+{#            font-size: 32px;#}
+{#            line-height: 50px;#}
+{#            font-style: normal;#}
+{#            -webkit-font-smoothing: antialiased;#}
+{#            -webkit-text-stroke-width: .2px;#}
+{#            display: block;#}
+{#            color: #c7c7c7;#}
+{#            content: "\f000";#}
+{#            position: absolute;#}
+{#            right: 12px;#}
+{#            top: 50%;#}
+{#            margin-top: -25px;#}
+{#            margin-right: -11px;#}
+{#        }#}
+{#    </style>#}
+</head>
+<body>
+<ul class="ui-list ui-list-single ui-list-link ui-border-tb">
+    {% for shop in shop_list %}
+        <a style="display: block; padding-left: 15px; color:black;" class="ui-border-t"  href={{ shop.url }}>
+{#            <li class="ui-border-t">#}
+                <div class="ui-list-info">
+                    <h4 class="ui-nowrap">{{ shop.name }}</h4>
+                </div>
+{#            </li>#}
+        </a>
+    {% endfor %}
+</ul>
+</body>
+</html>

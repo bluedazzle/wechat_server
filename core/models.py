@@ -30,7 +30,7 @@ class UniqueCode(BaseModel):
     use = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return '{0}-{1}-{2}-{3}'.format(self.unique_id, self.qr_content,  self.use, self.phone)
+        return '{0}-{1}-{2}-{3}'.format(self.unique_id, self.qr_content, self.use, self.phone)
 
 
 class WeChatAdmin(models.Model):
@@ -41,3 +41,11 @@ class WeChatAdmin(models.Model):
 
     def __unicode__(self):
         return self.app_id
+
+
+class Shop(models.Model):
+    name = models.CharField(max_length=20)
+    url = models.CharField(max_length=128, default='', null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name

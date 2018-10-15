@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^phone/$', PhonePageView.as_view()),
     url(r'^hint/$', HintPageView.as_view()),
     url(r'^result/$', PhoneListView.as_view()),
+    url(r'^shops/$', ShopListView.as_view()),
 ]

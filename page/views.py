@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.views.generic import ListView
 from django.views.generic import TemplateView
 
-from core.models import UniqueCode
+from core.models import UniqueCode, Shop
 
 
 class PhonePageView(TemplateView):
@@ -21,6 +21,11 @@ class PhonePageView(TemplateView):
 
 class HintPageView(TemplateView):
     template_name = 'hint.html'
+
+
+class ShopListView(ListView):
+    model = Shop
+    template_name = 'shop.html'
 
 
 class PhoneListView(ListView):

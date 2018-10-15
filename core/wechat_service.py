@@ -181,7 +181,8 @@ class WeChatService(object):
         if uc.exists():
             uc = uc[0]
             if uc.code_type == 10:
-                return "<a href='https://ditu.amap.com/place/B01670M5JQ'>导航</a>", False
+                return "<a href='/page/shops/'>导航</a>", False
+                # return "<a href='https://ditu.amap.com/place/B01670M5JQ'>导航</a>", False
             if uc.code_type == 11:
                 return self.response_article(scode_type.get(uc.code_type), uc.unique_id)
                 # return "<a href='http://sy.chafanbao.com/page/phone/?token={0}'>点击领券</a>".format(unique_id)
