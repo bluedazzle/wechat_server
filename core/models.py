@@ -45,6 +45,7 @@ class WeChatAdmin(models.Model):
 
 class Shop(models.Model):
     name = models.CharField(max_length=20)
+    address = models.CharField(max_length=100, default='', null=True, blank=True)
     url = models.CharField(max_length=128, default='', null=True, blank=True)
 
     def __unicode__(self):
