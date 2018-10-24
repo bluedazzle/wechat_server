@@ -136,13 +136,9 @@ class WeChatService(object):
         if message.content == 'cm':
             menu = {
                 'button': [
-                    {'name': '活动介绍',
+                    {'name': '🚘去保养',
                      'type': 'view',
-                     'url': 'https://mp.weixin.qq.com/s/dcv8CZktbCu7OiA3-9O1yA'
-                     },
-                    {'name': '双向引流',
-                     'type': 'view',
-                     'url': 'http://static.fibar.cn/shuangxiangyinliujiaochengshipin.mp4'
+                     'url': 'http://sy.chafanbao.com/page/shops/'
                      },
                     {'name': '昆仑微网',
                      'type': 'view',
