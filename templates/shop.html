@@ -28,16 +28,16 @@
     {#    </style>#}
 </head>
 <body>
-<ul class="ui-list ui-list-single ui-list-link ui-border-tb">
+<ul class="ui-list ui-list-nospace ui-border-tb">
     {% for shop in shop_list %}
-        <a style="display: block; padding-left: 15px; color:black;" class="ui-border-t" href={{ shop.url }}>
-            {#            <li class="ui-border-t">#}
-            <div class="ui-list-info ui-border-t">
-                <h4 class="ui-nowrap">{{ shop.name }}</h4>
-                <p>{{ shop.address }}</p>
+        <li class="ui-border-t ui-arrowlink">
+            <div class="ui-list-info">
+                <a href="{{ shop.url }}">
+                    <h4 class="ui-nowrap">{{ shop.name }}</h4>
+                    <p class="ui-nowrap">{{ shop.address }}</p>
+                </a>
             </div>
-            {#            </li>#}
-        </a>
+        </li>
     {% endfor %}
 </ul>
 </body>
